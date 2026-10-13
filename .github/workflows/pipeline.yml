@@ -16,8 +16,8 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - name: Install dependencies
-        run: npm ci
+      - name: Install dependencies and repair lockfile metadata
+        run: npm install
       - name: Lint
         run: npm run lint
       - name: Build

@@ -10,6 +10,6 @@ Run `npm run build` to create the production frontend in `dist/`. `npm start` st
 
 ## CI/CD pipeline
 
-`.github/workflows/pipeline.yml` runs on pull requests and pushes to `main`. It installs locked npm dependencies, runs ESLint, builds the frontend, and stores `dist/` as a workflow artifact. After a successful push to `main`, it triggers a Render deployment when the repository has the `RENDER_DEPLOY_HOOK` Actions secret configured.
+`.github/workflows/pipeline.yml` runs on pull requests and pushes to `main`. It installs npm dependencies, runs ESLint, builds the frontend, and stores `dist/` as a workflow artifact. After a successful push to `main`, it triggers a Render deployment when the repository has the `RENDER_DEPLOY_HOOK` Actions secret configured.
 
 For a single Render deployment, create a **Web Service** from this repository. Use `npm ci && npm run build` as the build command and `npm start` as the start command. Add the service's deploy hook URL as the repository Actions secret `RENDER_DEPLOY_HOOK`. To preserve phonebook changes across service replacements, attach a persistent disk mounted at `/var/data` and set `DATA_FILE=/var/data/db.json`. The first start seeds that file from `db.json`. Without a persistent disk, the database resets when the service instance is replaced.
