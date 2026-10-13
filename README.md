@@ -6,6 +6,16 @@ Full Stack Open exercise 21 phonebook application with a React/Vite frontend and
 
 Install dependencies with `npm install`, then start the API with `npm run server` and the frontend with `npm run dev` in separate terminals. The API listens on port 3001, reads and writes `db.json`, and implements `GET`, `POST`, `PUT`, and `DELETE` at `/api/persons`. The Vite development server proxies `/api` requests to it.
 
+## API
+
+| Method | Route | Purpose |
+| --- | --- | --- |
+| `GET` | `/api/persons` | List all contacts |
+| `GET` | `/api/persons/:id` | Get one contact |
+| `POST` | `/api/persons` | Add a contact with a name and number |
+| `PUT` | `/api/persons/:id` | Update a contact's name and number |
+| `DELETE` | `/api/persons/:id` | Delete a contact |
+
 Run `npm run build` to create the production frontend in `dist/`. `npm start` starts the backend, which serves both the API and the built frontend. Set `PORT` to change the listening port. `DATA_FILE` can point to a writable JSON database file; if that path does not exist yet, the server initializes it from `db.json`. `VITE_API_URL` can point the frontend to a separately hosted API origin; leave it unset when the frontend and backend share one host.
 
 ## CI/CD pipeline
